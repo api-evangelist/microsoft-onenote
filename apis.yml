@@ -1,0 +1,55 @@
+aid: microsoft-onenote
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-onenote/refs/heads/main/apis.yml
+apis:
+  - aid: microsoft-onenote:graph-onenote-api
+    name: Microsoft Graph OneNote API
+    tags:
+      - Notes
+      - Notebooks
+      - Sections
+      - Pages
+      - Productivity
+      - Microsoft Graph
+      - Office 365
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://graph.microsoft.com/v1.0/
+    humanURL: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+    properties:
+      - url: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+        type: Documentation
+      - url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
+        type: API Reference
+      - url: https://learn.microsoft.com/en-us/graph/onenote-get-started
+        type: Getting Started
+      - url: https://learn.microsoft.com/en-us/graph/onenote-best-practices
+        type: Best Practices
+    description: >-
+      The Microsoft Graph OneNote API provides programmatic access to OneNote
+      notebooks, sections, section groups, and pages stored in OneDrive or
+      SharePoint. Developers can create, read, update, and delete notebook
+      content, extract text from images using OCR, perform full-text search,
+      and sync changes across devices. The API supports rendering page
+      content as HTML and enables business card extraction and image-based
+      data capture scenarios.
+common:
+  - type: Portal
+    url: https://portal.azure.com/
+  - type: Developer Portal
+    url: https://developer.microsoft.com/
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/graph/auth/
+  - type: SDKs
+    url: https://learn.microsoft.com/en-us/graph/sdks/sdks-overview
+  - type: Change Log
+    url: https://developer.microsoft.com/en-us/graph/changelog
+  - type: Rate Limits
+    url: https://learn.microsoft.com/en-us/graph/throttling
+  - type: Terms of Service
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  - type: Privacy Policy
+    url: https://privacy.microsoft.com/en-us/privacystatement
+  - type: Support
+    url: https://support.microsoft.com/
+maintainers:
+  - name: Kin Lane
+    email: kin@apievangelist.com
