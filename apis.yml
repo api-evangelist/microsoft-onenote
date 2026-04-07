@@ -7,11 +7,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Notes
-  - Notebooks
-  - Productivity
-  - Microsoft 365
   - Microsoft
+  - Microsoft 365
+  - Notebooks
+  - Notes
+  - Productivity
 url: https://raw.githubusercontent.com/api-evangelist/microsoft-onenote/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-03-16'
@@ -20,13 +20,13 @@ apis:
   - aid: microsoft-onenote:graph-onenote-api
     name: Microsoft Graph OneNote API
     tags:
-      - Notes
+      - Microsoft Graph
       - Notebooks
-      - Sections
+      - Notes
+      - Office 365
       - Pages
       - Productivity
-      - Microsoft Graph
-      - Office 365
+      - Sections
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://graph.microsoft.com/v1.0/
     humanURL: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
