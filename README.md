@@ -1,39 +1,52 @@
 # Microsoft OneNote (microsoft-onenote)
-The Microsoft Graph OneNote API provides programmatic access to OneNote notebooks, sections, section groups, and pages stored in OneDrive or SharePoint. Developers can create, read, update, and delete notebook content, extract text from images using OCR, perform full-text search, and sync changes across devices.
+
+Microsoft OneNote is a digital note-taking application. It provides API access through Microsoft Graph for managing notebooks, sections, section groups, and pages stored in OneDrive or SharePoint.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/microsoft-onenote/refs/heads/main/apis.yml)
 
-## Tags:
+## Tags
 
- - Notes, Notebooks, Sections, Pages, Productivity, Microsoft Graph, Office 365
+- Microsoft
+- Microsoft 365
+- Notebooks
+- Notes
+- Productivity
 
 ## Timestamps
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-03-13
+- **Created:** 2024-01-01
+- **Modified:** 2026-04-28
 
 ## APIs
 
 ### Microsoft Graph OneNote API
-The Microsoft Graph OneNote API provides programmatic access to OneNote notebooks, sections, section groups, and pages stored in OneDrive or SharePoint. Developers can create, read, update, and delete notebook content, extract text from images using OCR, perform full-text search, and sync changes across devices. The API supports rendering page content as HTML and enables business card extraction and image-based data capture scenarios.
+The Microsoft Graph OneNote API provides programmatic access to OneNote notebooks, sections, section groups, and pages stored in OneDrive or SharePoint. Developers can create, read, update, and delete notebook content, extract text from images using OCR, perform full-text search, and sync changes across devices.
 
 **Human URL:** [https://learn.microsoft.com/en-us/graph/integrate-with-onenote](https://learn.microsoft.com/en-us/graph/integrate-with-onenote)
 
-#### Tags:
+**Base URL:** https://graph.microsoft.com/v1.0/
 
- - Notes, Notebooks, Sections, Pages, Productivity, Microsoft Graph, Office 365
+#### Tags
+
+- Microsoft Graph
+- Notebooks
+- Notes
+- Office 365
+- Pages
+- Productivity
+- Sections
 
 #### Properties
 
 - [Documentation](https://learn.microsoft.com/en-us/graph/integrate-with-onenote)
-- [API Reference](https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview)
+- [Reference](https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview)
 - [Getting Started](https://learn.microsoft.com/en-us/graph/onenote-get-started)
-- [Best Practices](https://learn.microsoft.com/en-us/graph/onenote-best-practices)
 
 ## Common Properties
 
 - [Portal](https://portal.azure.com/)
-- [Developer Portal](https://developer.microsoft.com/)
+- [Website](https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app)
+- [Documentation](https://learn.microsoft.com/en-us/graph/integrate-with-onenote)
 - [Authentication](https://learn.microsoft.com/en-us/graph/auth/)
 - [SDKs](https://learn.microsoft.com/en-us/graph/sdks/sdks-overview)
 - [Change Log](https://developer.microsoft.com/en-us/graph/changelog)
