@@ -37,6 +37,8 @@ apis:
         type: Reference
       - url: https://learn.microsoft.com/en-us/graph/onenote-get-started
         type: Getting Started
+      - url: openapi/microsoft-onenote-openapi.yml
+        type: OpenAPI
     description: >-
       The Microsoft Graph OneNote API provides programmatic access to OneNote
       notebooks, sections, section groups, and pages stored in OneDrive or
