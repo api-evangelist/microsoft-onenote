@@ -36,7 +36,7 @@ apis:
       - url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
         type: Reference
       - url: https://learn.microsoft.com/en-us/graph/onenote-get-started
-        type: Getting Started
+        type: GettingStarted
       - url: openapi/microsoft-onenote-openapi.yml
         type: OpenAPI
     description: >-
@@ -56,13 +56,13 @@ common:
     url: https://learn.microsoft.com/en-us/graph/auth/
   - type: SDKs
     url: https://learn.microsoft.com/en-us/graph/sdks/sdks-overview
-  - type: Change Log
+  - type: ChangeLog
     url: https://developer.microsoft.com/en-us/graph/changelog
-  - type: Rate Limits
+  - type: RateLimits
     url: https://learn.microsoft.com/en-us/graph/throttling
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.microsoft.com/en-us/legal/terms-of-use
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://privacy.microsoft.com/en-us/privacystatement
   - type: Support
     url: https://support.microsoft.com/
