@@ -1,0 +1,137 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft OneNote API (Microsoft Graph) — Notebooks
+  description: 'Microsoft OneNote API (Microsoft Graph) — Notebooks. 3 operations. Lead operation: List notebooks. Self-contained
+    Naftiko capability covering one Microsoft Onenote business surface.'
+  tags:
+  - Microsoft Onenote
+  - Notebooks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_ONENOTE_API_KEY: MICROSOFT_ONENOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft-onenote-notebooks
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft OneNote API (Microsoft Graph) — Notebooks business capability. Self-contained, no shared references.
+    resources:
+    - name: me-onenote-notebooks
+      path: /me/onenote/notebooks
+      operations:
+      - name: listnotebooks
+        method: GET
+        description: List notebooks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createnotebook
+        method: POST
+        description: Create notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: me-onenote-notebooks-notebookId
+      path: /me/onenote/notebooks/{notebookId}
+      operations:
+      - name: getnotebook
+        method: GET
+        description: Get notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_ONENOTE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: microsoft-onenote-notebooks-rest
+    port: 8080
+    description: REST adapter for Microsoft OneNote API (Microsoft Graph) — Notebooks. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/me/onenote/notebooks
+      name: me-onenote-notebooks
+      description: REST surface for me-onenote-notebooks.
+      operations:
+      - method: GET
+        name: listnotebooks
+        description: List notebooks
+        call: microsoft-onenote-notebooks.listnotebooks
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createnotebook
+        description: Create notebook
+        call: microsoft-onenote-notebooks.createnotebook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/onenote/notebooks/{notebookid}
+      name: me-onenote-notebooks-notebookid
+      description: REST surface for me-onenote-notebooks-notebookId.
+      operations:
+      - method: GET
+        name: getnotebook
+        description: Get notebook
+        call: microsoft-onenote-notebooks.getnotebook
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: microsoft-onenote-notebooks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft OneNote API (Microsoft Graph) — Notebooks. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-notebooks
+      description: List notebooks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-notebooks.listnotebooks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-notebook
+      description: Create notebook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-onenote-notebooks.createnotebook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-notebook
+      description: Get notebook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-notebooks.getnotebook
+      outputParameters:
+      - type: object
+        mapping: $.

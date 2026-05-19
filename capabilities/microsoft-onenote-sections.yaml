@@ -1,0 +1,169 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft OneNote API (Microsoft Graph) — Sections
+  description: 'Microsoft OneNote API (Microsoft Graph) — Sections. 4 operations. Lead operation: List sections in notebook.
+    Self-contained Naftiko capability covering one Microsoft Onenote business surface.'
+  tags:
+  - Microsoft Onenote
+  - Sections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_ONENOTE_API_KEY: MICROSOFT_ONENOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft-onenote-sections
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft OneNote API (Microsoft Graph) — Sections business capability. Self-contained, no shared references.
+    resources:
+    - name: me-onenote-notebooks-notebookId-sections
+      path: /me/onenote/notebooks/{notebookId}/sections
+      operations:
+      - name: listnotebooksections
+        method: GET
+        description: List sections in notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createnotebooksection
+        method: POST
+        description: Create section in notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: me-onenote-sections
+      path: /me/onenote/sections
+      operations:
+      - name: listsections
+        method: GET
+        description: List sections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: me-onenote-sections-sectionId
+      path: /me/onenote/sections/{sectionId}
+      operations:
+      - name: getsection
+        method: GET
+        description: Get section
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_ONENOTE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: microsoft-onenote-sections-rest
+    port: 8080
+    description: REST adapter for Microsoft OneNote API (Microsoft Graph) — Sections. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/me/onenote/notebooks/{notebookid}/sections
+      name: me-onenote-notebooks-notebookid-sections
+      description: REST surface for me-onenote-notebooks-notebookId-sections.
+      operations:
+      - method: GET
+        name: listnotebooksections
+        description: List sections in notebook
+        call: microsoft-onenote-sections.listnotebooksections
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createnotebooksection
+        description: Create section in notebook
+        call: microsoft-onenote-sections.createnotebooksection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/onenote/sections
+      name: me-onenote-sections
+      description: REST surface for me-onenote-sections.
+      operations:
+      - method: GET
+        name: listsections
+        description: List sections
+        call: microsoft-onenote-sections.listsections
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/onenote/sections/{sectionid}
+      name: me-onenote-sections-sectionid
+      description: REST surface for me-onenote-sections-sectionId.
+      operations:
+      - method: GET
+        name: getsection
+        description: Get section
+        call: microsoft-onenote-sections.getsection
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: microsoft-onenote-sections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft OneNote API (Microsoft Graph) — Sections. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-sections-notebook
+      description: List sections in notebook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-sections.listnotebooksections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-section-notebook
+      description: Create section in notebook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-onenote-sections.createnotebooksection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-sections
+      description: List sections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-sections.listsections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-section
+      description: Get section
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-sections.getsection
+      outputParameters:
+      - type: object
+        mapping: $.

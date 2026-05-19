@@ -1,0 +1,261 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft OneNote API (Microsoft Graph) — Pages
+  description: 'Microsoft OneNote API (Microsoft Graph) — Pages. 7 operations. Lead operation: List pages. Self-contained
+    Naftiko capability covering one Microsoft Onenote business surface.'
+  tags:
+  - Microsoft Onenote
+  - Pages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_ONENOTE_API_KEY: MICROSOFT_ONENOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft-onenote-pages
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft OneNote API (Microsoft Graph) — Pages business capability. Self-contained, no shared references.
+    resources:
+    - name: me-onenote-pages
+      path: /me/onenote/pages
+      operations:
+      - name: listpages
+        method: GET
+        description: List pages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: me-onenote-pages-pageId
+      path: /me/onenote/pages/{pageId}
+      operations:
+      - name: getpage
+        method: GET
+        description: Get page metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletepage
+        method: DELETE
+        description: Delete page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: me-onenote-pages-pageId-content
+      path: /me/onenote/pages/{pageId}/content
+      operations:
+      - name: getpagecontent
+        method: GET
+        description: Get page HTML content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepagecontent
+        method: PATCH
+        description: Update page content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: me-onenote-sections-sectionId-pages
+      path: /me/onenote/sections/{sectionId}/pages
+      operations:
+      - name: listsectionpages
+        method: GET
+        description: List pages in section
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createsectionpage
+        method: POST
+        description: Create page in section
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_ONENOTE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: microsoft-onenote-pages-rest
+    port: 8080
+    description: REST adapter for Microsoft OneNote API (Microsoft Graph) — Pages. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/me/onenote/pages
+      name: me-onenote-pages
+      description: REST surface for me-onenote-pages.
+      operations:
+      - method: GET
+        name: listpages
+        description: List pages
+        call: microsoft-onenote-pages.listpages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/onenote/pages/{pageid}
+      name: me-onenote-pages-pageid
+      description: REST surface for me-onenote-pages-pageId.
+      operations:
+      - method: GET
+        name: getpage
+        description: Get page metadata
+        call: microsoft-onenote-pages.getpage
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletepage
+        description: Delete page
+        call: microsoft-onenote-pages.deletepage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/onenote/pages/{pageid}/content
+      name: me-onenote-pages-pageid-content
+      description: REST surface for me-onenote-pages-pageId-content.
+      operations:
+      - method: GET
+        name: getpagecontent
+        description: Get page HTML content
+        call: microsoft-onenote-pages.getpagecontent
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatepagecontent
+        description: Update page content
+        call: microsoft-onenote-pages.updatepagecontent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/onenote/sections/{sectionid}/pages
+      name: me-onenote-sections-sectionid-pages
+      description: REST surface for me-onenote-sections-sectionId-pages.
+      operations:
+      - method: GET
+        name: listsectionpages
+        description: List pages in section
+        call: microsoft-onenote-pages.listsectionpages
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsectionpage
+        description: Create page in section
+        call: microsoft-onenote-pages.createsectionpage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: microsoft-onenote-pages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft OneNote API (Microsoft Graph) — Pages. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-pages
+      description: List pages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-pages.listpages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-page-metadata
+      description: Get page metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-pages.getpage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-page
+      description: Delete page
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: microsoft-onenote-pages.deletepage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-page-html-content
+      description: Get page HTML content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-pages.getpagecontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-page-content
+      description: Update page content
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-pages.updatepagecontent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-pages-section
+      description: List pages in section
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-onenote-pages.listsectionpages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-page-section
+      description: Create page in section
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-onenote-pages.createsectionpage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
