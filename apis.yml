@@ -1,6 +1,7 @@
 aid: microsoft-onenote
 name: Microsoft OneNote
-description: Microsoft OneNote is a digital note-taking application. It provides API access through Microsoft Graph for managing
+description: >-
+  Microsoft OneNote is a digital note-taking application. It provides API access through Microsoft Graph for managing
   notebooks, sections, section groups, and pages stored in OneDrive or SharePoint.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -18,35 +19,28 @@ apis:
   - aid: microsoft-onenote:graph-onenote-api
     name: Microsoft Graph OneNote API
     tags:
-    - Microsoft Graph
-    - Notebooks
-    - Notes
-    - Office 365
-    - Pages
-    - Productivity
-    - Sections
+      - Microsoft Graph
+      - Notebooks
+      - Notes
+      - Office 365
+      - Pages
+      - Productivity
+      - Sections
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://graph.microsoft.com/v1.0/
     humanURL: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
     properties:
-    - url: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
-      type: Documentation
-    - url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
-      type: Reference
-    - url: https://learn.microsoft.com/en-us/graph/onenote-get-started
-      type: GettingStarted
-    - url: openapi/microsoft-onenote-openapi.yml
-      type: OpenAPI
-    - type: NaftikoCapability
-      url: capabilities/microsoft-onenote-notebooks.yaml
-    - type: NaftikoCapability
-      url: capabilities/microsoft-onenote-pages.yaml
-    - type: NaftikoCapability
-      url: capabilities/microsoft-onenote-sectiongroups.yaml
-    - type: NaftikoCapability
-      url: capabilities/microsoft-onenote-sections.yaml
-    description: The Microsoft Graph OneNote API provides programmatic access to OneNote notebooks, sections, section groups,
-      and pages stored in OneDrive or SharePoint. Developers can create, read, update, and delete notebook content, extract
+      - url: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+        type: Documentation
+      - url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
+        type: Reference
+      - url: https://learn.microsoft.com/en-us/graph/onenote-get-started
+        type: GettingStarted
+      - url: openapi/microsoft-onenote-openapi.yml
+        type: OpenAPI
+    description: >-
+      The Microsoft Graph OneNote API provides programmatic access to OneNote notebooks, sections, section groups, and
+      pages stored in OneDrive or SharePoint. Developers can create, read, update, and delete notebook content, extract
       text from images using OCR, perform full-text search, and sync changes across devices.
 common:
   - type: GitHubOrganization

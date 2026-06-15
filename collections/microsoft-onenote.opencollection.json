@@ -1,0 +1,339 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft OneNote API (Microsoft Graph)",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notebooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notebooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks"
+          },
+          "docs": "List notebooks"
+        },
+        {
+          "info": {
+            "name": "Create notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create notebook"
+        },
+        {
+          "info": {
+            "name": "Get notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks/:notebookId",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get notebook"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List sections in notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks/:notebookId/sections",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List sections in notebook"
+        },
+        {
+          "info": {
+            "name": "Create section in notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks/:notebookId/sections",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create section in notebook"
+        },
+        {
+          "info": {
+            "name": "List sections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/sections"
+          },
+          "docs": "List sections"
+        },
+        {
+          "info": {
+            "name": "Get section",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/sections/:sectionId",
+            "params": [
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get section"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SectionGroups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List section groups in notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks/:notebookId/sectionGroups",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List section groups in notebook"
+        },
+        {
+          "info": {
+            "name": "Create section group in notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks/:notebookId/sectionGroups",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create section group in notebook"
+        },
+        {
+          "info": {
+            "name": "List section groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/sectionGroups"
+          },
+          "docs": "List section groups"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pages in section",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/sections/:sectionId/pages",
+            "params": [
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List pages in section"
+        },
+        {
+          "info": {
+            "name": "Create page in section",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/sections/:sectionId/pages",
+            "params": [
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Create page in section"
+        },
+        {
+          "info": {
+            "name": "List pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages"
+          },
+          "docs": "List pages"
+        },
+        {
+          "info": {
+            "name": "Get page metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages/:pageId",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get page metadata"
+        },
+        {
+          "info": {
+            "name": "Delete page",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages/:pageId",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete page"
+        },
+        {
+          "info": {
+            "name": "Get page HTML content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages/:pageId/content",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get page HTML content"
+        },
+        {
+          "info": {
+            "name": "Update page content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages/:pageId/content",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update page content"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
