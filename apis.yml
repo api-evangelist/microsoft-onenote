@@ -43,6 +43,10 @@ apis:
       pages stored in OneDrive or SharePoint. Developers can create, read, update, and delete notebook content, extract
       text from images using OCR, perform full-text search, and sync changes across devices.
 common:
+  - type: DomainSecurity
+    url: security/microsoft-onenote-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-onenote-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/microsoftgraph
   - type: Portal
