@@ -43,6 +43,8 @@ apis:
       pages stored in OneDrive or SharePoint. Developers can create, read, update, and delete notebook content, extract
       text from images using OCR, perform full-text search, and sync changes across devices.
 common:
+  - type: AgenticAccess
+    url: agentic-access/microsoft-onenote-agentic-access.yml
   - type: DomainSecurity
     url: security/microsoft-onenote-domain-security.yml
   - type: Authentication
