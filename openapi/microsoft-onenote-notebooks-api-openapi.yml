@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: Microsoft OneNote API (Microsoft Graph) Notebooks API
+  description: Minimal OpenAPI definition for the OneNote REST API exposed via Microsoft Graph for managing notebooks, sections, sectionGroups, and pages.
+  version: v1.0
+  x-generated-from: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  x-generated-by: claude-crawl-2026-05-08
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0
+security:
+- bearerAuth: []
+tags:
+- name: Notebooks
+paths:
+  /me/onenote/notebooks:
+    get:
+      tags:
+      - Notebooks
+      summary: List notebooks
+      operationId: listNotebooks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericList'
+    post:
+      tags:
+      - Notebooks
+      summary: Create notebook
+      operationId: createNotebook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericObject'
+      responses:
+        '201':
+          description: Created
+  /me/onenote/notebooks/{notebookId}:
+    parameters:
+    - $ref: '#/components/parameters/NotebookId'
+    get:
+      tags:
+      - Notebooks
+      summary: Get notebook
+      operationId: getNotebook
+      responses:
+        '200':
+          description: OK
+components:
+  parameters:
+    NotebookId:
+      in: path
+      name: notebookId
+      required: true
+      schema:
+        type: string
+  schemas:
+    GenericObject:
+      type: object
+      additionalProperties: true
+    GenericList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenericObject'
+      additionalProperties: true
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

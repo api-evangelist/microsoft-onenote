@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Microsoft OneNote API (Microsoft Graph) Notebooks Sections API
+  description: Minimal OpenAPI definition for the OneNote REST API exposed via Microsoft Graph for managing notebooks, sections, sectionGroups, and pages.
+  version: v1.0
+  x-generated-from: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  x-generated-by: claude-crawl-2026-05-08
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0
+security:
+- bearerAuth: []
+tags:
+- name: Sections
+paths:
+  /me/onenote/notebooks/{notebookId}/sections:
+    parameters:
+    - $ref: '#/components/parameters/NotebookId'
+    get:
+      tags:
+      - Sections
+      summary: List sections in notebook
+      operationId: listNotebookSections
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericList'
+    post:
+      tags:
+      - Sections
+      summary: Create section in notebook
+      operationId: createNotebookSection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericObject'
+      responses:
+        '201':
+          description: Created
+  /me/onenote/sections:
+    get:
+      tags:
+      - Sections
+      summary: List sections
+      operationId: listSections
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericList'
+  /me/onenote/sections/{sectionId}:
+    parameters:
+    - $ref: '#/components/parameters/SectionId'
+    get:
+      tags:
+      - Sections
+      summary: Get section
+      operationId: getSection
+      responses:
+        '200':
+          description: OK
+components:
+  parameters:
+    SectionId:
+      in: path
+      name: sectionId
+      required: true
+      schema:
+        type: string
+    NotebookId:
+      in: path
+      name: notebookId
+      required: true
+      schema:
+        type: string
+  schemas:
+    GenericObject:
+      type: object
+      additionalProperties: true
+    GenericList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenericObject'
+      additionalProperties: true
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
