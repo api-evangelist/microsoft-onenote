@@ -4,7 +4,20 @@ description: >-
   Microsoft OneNote is a digital note-taking application. It provides API access through Microsoft Graph for managing
   notebooks, sections, section groups, and pages stored in OneDrive or SharePoint.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-onenote.png
 tags:
   - Microsoft
   - Microsoft 365
@@ -16,32 +29,70 @@ created: '2024-01-01'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: microsoft-onenote:graph-onenote-api
-    name: Microsoft Graph OneNote API
-    tags:
-      - Microsoft Graph
-      - Notebooks
-      - Notes
-      - Office 365
-      - Pages
-      - Productivity
-      - Sections
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://graph.microsoft.com/v1.0/
-    humanURL: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
-    properties:
-      - url: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
-        type: Documentation
-      - url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
-        type: Reference
-      - url: https://learn.microsoft.com/en-us/graph/onenote-get-started
-        type: GettingStarted
-      - url: openapi/microsoft-onenote-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Microsoft Graph OneNote API provides programmatic access to OneNote notebooks, sections, section groups, and
-      pages stored in OneDrive or SharePoint. Developers can create, read, update, and delete notebook content, extract
-      text from images using OCR, perform full-text search, and sync changes across devices.
+- aid: microsoft-onenote:microsoft-onenote-notebooks-api
+  name: Microsoft OneNote Notebooks API
+  description: The Notebooks API from Microsoft OneNote — 2 operation(s) for notebooks.
+  humanURL: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  baseURL: https://graph.microsoft.com/v1.0/
+  tags:
+  - Notebooks
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-onenote-notebooks-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/graph/onenote-get-started
+- aid: microsoft-onenote:microsoft-onenote-pages-api
+  name: Microsoft OneNote Pages API
+  description: The Pages API from Microsoft OneNote — 4 operation(s) for pages.
+  humanURL: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  baseURL: https://graph.microsoft.com/v1.0/
+  tags:
+  - Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-onenote-pages-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/graph/onenote-get-started
+- aid: microsoft-onenote:microsoft-onenote-sectiongroups-api
+  name: Microsoft OneNote SectionGroups API
+  description: The SectionGroups API from Microsoft OneNote — 2 operation(s) for sectiongroups.
+  humanURL: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  baseURL: https://graph.microsoft.com/v1.0/
+  tags:
+  - SectionGroups
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-onenote-sectiongroups-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/graph/onenote-get-started
+- aid: microsoft-onenote:microsoft-onenote-sections-api
+  name: Microsoft OneNote Sections API
+  description: The Sections API from Microsoft OneNote — 3 operation(s) for sections.
+  humanURL: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  baseURL: https://graph.microsoft.com/v1.0/
+  tags:
+  - Sections
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-onenote-sections-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/integrate-with-onenote
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/graph/api/resources/onenote-api-overview
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/graph/onenote-get-started
 common:
   - type: AgenticAccess
     url: agentic-access/microsoft-onenote-agentic-access.yml
