@@ -1,0 +1,20 @@
+{
+  "provider": "microsoft-onenote",
+  "sources": [
+    "microsoft-onenote-notebooks-api-openapi.yml",
+    "microsoft-onenote-pages-api-openapi.yml",
+    "microsoft-onenote-sectiongroups-api-openapi.yml",
+    "microsoft-onenote-sections-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-onenote-notebooks-api-openapi.yml",
+    "microsoft-onenote-pages-api-openapi.yml",
+    "microsoft-onenote-sectiongroups-api-openapi.yml",
+    "microsoft-onenote-sections-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
