@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft OneNote API (Microsoft Graph) Notebooks Pages API",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pages in section",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/sections/:sectionId/pages",
+            "params": [
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List pages in section"
+        },
+        {
+          "info": {
+            "name": "Create page in section",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/sections/:sectionId/pages",
+            "params": [
+              {
+                "name": "sectionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Create page in section"
+        },
+        {
+          "info": {
+            "name": "List pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages"
+          },
+          "docs": "List pages"
+        },
+        {
+          "info": {
+            "name": "Get page metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages/:pageId",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get page metadata"
+        },
+        {
+          "info": {
+            "name": "Delete page",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages/:pageId",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete page"
+        },
+        {
+          "info": {
+            "name": "Get page HTML content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages/:pageId/content",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get page HTML content"
+        },
+        {
+          "info": {
+            "name": "Update page content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/pages/:pageId/content",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update page content"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

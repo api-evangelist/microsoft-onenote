@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft OneNote API (Microsoft Graph) Notebooks API",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notebooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notebooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks"
+          },
+          "docs": "List notebooks"
+        },
+        {
+          "info": {
+            "name": "Create notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create notebook"
+        },
+        {
+          "info": {
+            "name": "Get notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks/:notebookId",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get notebook"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

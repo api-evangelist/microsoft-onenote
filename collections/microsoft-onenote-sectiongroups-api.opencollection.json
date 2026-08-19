@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft OneNote API (Microsoft Graph) Notebooks SectionGroups API",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SectionGroups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List section groups in notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks/:notebookId/sectionGroups",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List section groups in notebook"
+        },
+        {
+          "info": {
+            "name": "Create section group in notebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/notebooks/:notebookId/sectionGroups",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create section group in notebook"
+        },
+        {
+          "info": {
+            "name": "List section groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/onenote/sectionGroups"
+          },
+          "docs": "List section groups"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
