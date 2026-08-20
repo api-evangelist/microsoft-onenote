@@ -20,6 +20,12 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-onenote.png
 tags:
   - Microsoft
+  - Microsoft-365
+  - Notebooks
+  - Notes
+  - Productivity
+tags_raw:
+  - Microsoft
   - Microsoft 365
   - Notebooks
   - Notes
