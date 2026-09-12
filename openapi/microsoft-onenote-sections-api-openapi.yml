@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft OneNote API (Microsoft Graph) Notebooks Sections API
   description: Minimal OpenAPI definition for the OneNote REST API exposed via Microsoft Graph for managing notebooks, sections, sectionGroups, and pages.
@@ -67,23 +67,7 @@ paths:
         '200':
           description: OK
 components:
-  parameters:
-    SectionId:
-      in: path
-      name: sectionId
-      required: true
-      schema:
-        type: string
-    NotebookId:
-      in: path
-      name: notebookId
-      required: true
-      schema:
-        type: string
   schemas:
-    GenericObject:
-      type: object
-      additionalProperties: true
     GenericList:
       type: object
       properties:
@@ -92,6 +76,22 @@ components:
           items:
             $ref: '#/components/schemas/GenericObject'
       additionalProperties: true
+    GenericObject:
+      type: object
+      additionalProperties: true
+  parameters:
+    NotebookId:
+      in: path
+      name: notebookId
+      required: true
+      schema:
+        type: string
+    SectionId:
+      in: path
+      name: sectionId
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
