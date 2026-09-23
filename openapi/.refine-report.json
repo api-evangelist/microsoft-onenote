@@ -1,10 +1,7 @@
 {
   "provider": "microsoft-onenote",
   "sources": [
-    "microsoft-onenote-notebooks-api-openapi.yml",
-    "microsoft-onenote-pages-api-openapi.yml",
-    "microsoft-onenote-sectiongroups-api-openapi.yml",
-    "microsoft-onenote-sections-api-openapi.yml"
+    "_ae-authored/microsoft-onenote-openapi.yml"
   ],
   "outputs": [
     "microsoft-onenote-notebooks-api-openapi.yml",
@@ -16,11 +13,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "microsoft-onenote-notebooks-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "microsoft-onenote-pages-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "microsoft-onenote-sectiongroups-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "microsoft-onenote-sections-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "microsoft-onenote-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "microsoft-onenote-notebooks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-onenote-pages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-onenote-sectiongroups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-onenote-sections-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
