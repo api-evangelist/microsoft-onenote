@@ -68,22 +68,19 @@ paths:
           description: OK
 components:
   parameters:
-    NotebookId:
-      in: path
-      name: notebookId
-      required: true
-      schema:
-        type: string
     SectionId:
       in: path
       name: sectionId
       required: true
       schema:
         type: string
+    NotebookId:
+      in: path
+      name: notebookId
+      required: true
+      schema:
+        type: string
   schemas:
-    GenericObject:
-      type: object
-      additionalProperties: true
     GenericList:
       type: object
       properties:
@@ -91,6 +88,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GenericObject'
+      additionalProperties: true
+    GenericObject:
+      type: object
       additionalProperties: true
   securitySchemes:
     bearerAuth:
