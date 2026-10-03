@@ -113,6 +113,18 @@ paths:
         '204':
           description: No Content
 components:
+  schemas:
+    GenericObject:
+      type: object
+      additionalProperties: true
+    GenericList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenericObject'
+      additionalProperties: true
   parameters:
     PageId:
       in: path
@@ -126,18 +138,6 @@ components:
       required: true
       schema:
         type: string
-  schemas:
-    GenericObject:
-      type: object
-      additionalProperties: true
-    GenericList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/GenericObject'
-      additionalProperties: true
   securitySchemes:
     bearerAuth:
       type: http
