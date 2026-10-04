@@ -67,18 +67,6 @@ paths:
         '200':
           description: OK
 components:
-  schemas:
-    GenericObject:
-      type: object
-      additionalProperties: true
-    GenericList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/GenericObject'
-      additionalProperties: true
   parameters:
     SectionId:
       in: path
@@ -92,6 +80,18 @@ components:
       required: true
       schema:
         type: string
+  schemas:
+    GenericObject:
+      type: object
+      additionalProperties: true
+    GenericList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenericObject'
+      additionalProperties: true
   securitySchemes:
     bearerAuth:
       type: http
