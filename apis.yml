@@ -114,6 +114,10 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/graph/onenote-get-started
 common:
+  - type: Plans
+    url: plans/microsoft-onenote-plans-pricing.yml
+  - type: FinOps
+    url: finops/microsoft-onenote-finops.yml
   - type: AgenticAccess
     url: agentic-access/microsoft-onenote-agentic-access.yml
   - type: DomainSecurity
